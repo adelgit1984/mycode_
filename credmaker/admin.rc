@@ -1,0 +1,7 @@
+export OS_AUTH_URL=1.3
+export OS_IDENTITY_API_VERSION=3
+export OS_PROJECT_NAME=proj mayhem
+export OS_PROJECT_DOMAIN_NAME=projmayhem.com
+export OS_USERNAME=adel
+export OS_USER_DOMAIN_NAME=adel.com
+export OS_PASSWORD=user

@@ -1,28 +1,42 @@
 #!/user/bin/env python3
-import urllib.request
-import json
-import webbrowser
+import random
 
-# Define API
-apiurl = 'https://api.nasa.gov/planetary/apod?'
-demokey = 'api_key=DEMO_KEY' # using demo key in place of my key
+# defining how many times a user won in a session
+user_wins = 0
 
-# Calling webservice
-apiurlobj = urllib.request.urlopen(apiurl + demokey)
+# defining how many times the computer won in a session
+computer_wins = 0
 
-# Reading the object
-apiread = apiurlobj.read()
+# creating a list of options for rock/paper/scissors
+options = ["rock", "paper", "scissors"]
 
-# decode json to python data structure
-decodeapi = json.loads(apiread.decode('utf-8'))
+# defining variable for inputting user name and printing user input
+username = input("Hey there, what's your name?")
+print("Hello, " + username)
 
-# Display data
-
-print("\n\nConverted python data")
-print(decodeapi)
-
-# use browser to open the URL
-
-input('\nPress Enter to open NASA Picture of the Day in Firefox' )
-webbrowser.open(decodeapi['url'])
-
+while True: 
+  user_input = input("Shall we play some Rock/Paper/Scissors? Type in your selection or type Q to quit:").lower()
+  if user_input == "q":
+    break
+   
+  if user_input not in options:
+    continue
+    
+   # mapping rock/paper/scissor to int
+  random_number = random.randit(0, 2)
+  
+  computer_pick = options[random_number]
+  print("Computer Picked", computer_pick + "c")
+  
+  if user_input == "rock" and computer_pick == "scissors":
+    print("You won!")
+  elif user_input == "paper" and computer_pick == "rock":
+    print("You won!")
+  elif user_input == "scissors" and computer_pick == "paper":
+    print("You won!")
+  else:
+    print("You lost.")
+    
+print("You won", user_wins, "times.")
+print("The computer won", computer_wins, "times.")
+print("See you next time, " + username + ". Thank you for playing my program!")
